@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>MP 3.0: AngularJS Front-end</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">MP 3.0: AngularJS Front-end</div>
+
+    	<p><span class="section-heading"> Due Date - <em>October 17th</em>, 2016, 11.59PM CST <span></span></span></p>
+
+<p><span style="color: red"> Attention: </span> Please watch <a href="https://github.com/uiuc-web-programming/sp2016">this repository</a> and <a href="https://github.com/uiuc-web-programming/mp3_starter">this repository</a> on Github (by clicking the watch button on the top right) to make sure you receive notifications if changes are made to the MPs or the Labs.</p>
+
+<div class="section-heading"> Overview </div>
+<p>In this programming assignment you will implement a separate front-end interface using AngularJS. The assignment has one part. Please read through the entire MP before you start.</p>
+
+<p>You can use the development environment and server setup you used for MP 1.</p>
+
+<p>To get started, follow the setup instructions in the README of <a href="https://github.com/uiuc-web-programming/mp3_starter">this repository</a></p>
+
+<p>Here is a video demo for a <a href="https://youtu.be/DmDZuAr7QJE">sample application</a></p>
+
+<div class="section-heading"> AngularJS Front-End Design </div>
+<p>Goal: Create a single-page AngularJS app that lets users interact with the data from the <a href="http://www.imdb.com/chart/top">IMDB top 250 movies</a>. We’ve already crawled the data and formatted it as JSON: <code>public/data/imdb250.json</code>. We also downloaded the corresponding poster images for each movie: <code>public/data/images</code>. The images are named using the <code>imdbID</code> for each movies.</p>
+
+<p>Your app should have the following features:</p>
+
+<ol>
+  <li>A list view where users can input a search query and the app returns a list of movies that match the query. There should also be a way to sort the search results based on different properties of the results (such as the name or rank) and of specifying an ordering (ascending and descending). Also, the search bar should filter as you type.</li>
+  <li>A gallery view that displays the movie posters for all the movies. There should be a way to select movies from different genres in the gallery.</li>
+  <li>When an item in search view or the gallery view is clicked, the app should display the different attributes of the selected movie (from the JSON file). Also, this view should have previous and next buttons (can be implemented with arrows) that lets the user cycle through the list of movies.</li>
+  <li>You should use partials</li>
+  <li>You are free to use Foundation’s components (such as the grid etc. ) for this part as long as it is used for styling and not used to implement the core functionality of the app.
+We recommend you to use the following project structure:</li>
+</ol>
+
+<p><strong>Files</strong>:</p>
+
+<ol>
+  <li>The main HTML file for this app should be <code>public/index.html</code>, <strong>but you should not have to make major changes to it</strong> (no more than 5-6 lines of code).
+The line of code <code>&lt;div ng-view&gt;&lt;/div&gt;</code> in the index.html inserts a partial into that div. It is up to you to set up the routing in your JS file.</li>
+  <li>Your app has three main views (one for the list, one for the gallery and the other for displaying the details of a particuar movie). These should be implemented using three different <a href="https://docs.angularjs.org/tutorial/step_07">Angular routing and partial templates</a>. You can implement them in the three files in <code>public/partials</code></li>
+  <li>Your Angular code should go in <code>source_js/app.js</code> except for the controllers. The controllers should be in <code>source_js/controllers.js</code>. This keeps your code organized.
+4, For styling, you can use the scss files in <code>scss</code> folder like you did in MP 1 or write a css file or borrow css/scss from elsewhere (such as from Foundation).</li>
+</ol>
+
+<p>Also, here is a list of angular components that you might find useful:
+1. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/directive/ngApp">ngApp</a>
+2. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/directive/ngController">ngController</a>
+3. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/directive/ngModel">ngModel</a>
+4. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/directive/ngRepeat">ngRepeat</a>
+5. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/service/$filter">filter</a>
+6. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/filter/orderBy">orderBy</a>
+7. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/service/$http">$http</a>
+8. <a href="https://code.angularjs.org/1.3.13/docs/api/ng/directive/ngSrc">ngSrc</a></p>
+
+<p>For the complete list, please refer to the <a href="https://docs.angularjs.org/api/ng">Angular documentation</a>. Make sure you’re looking at the correct Angular version.</p>
+
+<div class="section-heading"> Rules </div>
+<ol>
+  <li>This is an individual assignment. No collaboration is permitted.</li>
+  <li>It is not permitted to copy/paste code that is not your own. You are, however, free to look at different code sources for inspiration and clarity. All sources (code as well as reading material) that you reference to complete this assignment must be declared in the submission.</li>
+  <li>If you think something you’re doing might not be acceptable, please ask on Piazza.</li>
+  <li>If you have additional assets (say pictures) you should put them under <code>public/data</code> folder and put everything there or in its subfolders (say <code>public/data/pics</code> and <code>public/data/videos</code>). There should be no other place in your folder structure where you are loading assets from. For example, do not create a <code>css/images</code> directory.</li>
+  <li>You should not use absolute paths to load any of your asset files (say css, images or js) from your server. For example, there should not be anything like:</li>
+</ol>
+
+<p><code>html
+src="/photos/skyline.jpg"
+</code></p>
+
+<p>They should all be relative paths (from your index.html file if thats where you are including this asset) like:</p>
+
+<p><code>html
+src="./photos/skyline.jpg"
+</code></p>
+
+<p>This is needed because when we host your code for grading, the folder structure on our server would be different from what it was on your server and things would break. So, you have to make sure the code in your <code>public</code> folder works no matter where the public folder is placed on a server.</p>
+
+<div class="section-heading"> Grade Breakdown </div>
+<p>Total Points : 50</p>
+
+<p>List View:</p>
+
+<ul>
+  <li>Does the list view display movies? (2 points)</li>
+  <li>Does the search bar narrow down the movies? (4 points)</li>
+  <li>Can you sort by Film Name and Film Rank?  (4 points)</li>
+  <li>Can the sorting be done in Ascending and Descending order?  (4 points)</li>
+</ul>
+
+<p>Gallery View:</p>
+
+<ul>
+  <li>Is the gallery composed of movie posters?  (2 points)</li>
+  <li>Does clicking on a Genre filter out the movies?  (4 points)</li>
+</ul>
+
+<p>Details View:</p>
+
+<ul>
+  <li>Does clicking on a movie in List View take you to the Details View?  (5 points)</li>
+  <li>Does clicking on a movie in Gallery View take you to the Details View?  (5 points)</li>
+  <li>Does the Details View contain movie details?  (4 points)</li>
+  <li>Does the PREVIOUS and NEXT buttons work correctly?  (5 points)</li>
+</ul>
+
+<p>Other:</p>
+
+<ul>
+  <li>Does the implementation use partials and routes?  (6 points)</li>
+  <li>design (5 points)</li>
+</ul>
+
+<div class="section-heading"> Tips </div>
+
+<ol>
+  <li>To be able to debug AngularJS code in the chrome developer tools, you should install the <a href="https://chrome.google.com/webstore/detail/angularjs-batarang-stable/niopocochgahfkiccpjmmpchncjoapek">AngularJS Batarang (Stable)</a> plugin. Some other AngularJS debugging tips can be found <a href="http://ionicframework.com/blog/angularjs-console/">in this article</a></li>
+  <li>Also, if you have problems debugging your JavaScript due to uglification, you can disable it by commenting out line 49 of Gruntfile.js and uncommenting line 50. Your final submission for MP 3 should work with uglification though.</li>
+  <li>Uglification/minification of Angular code can result in undesirable changes (due to change in function parameter names). One thing you can do to avoid this is to always declare your controllers using the following template:</li>
+</ol>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>imdbControllers.controller(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myController</span><span style="color:#710">'</span></span>, [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$scope</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$http</span><span style="color:#710">'</span></span>, <span style="color:#080;font-weight:bold">function</span>(<span style="color:#369;font-weight:bold">$scope</span>, <span style="color:#369;font-weight:bold">$http</span>) {
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>}]);
+</pre></div>
+</div>
+</div>
+
+<p>instead of:</p>
+
+<pre><code>imdbControllers.controller('myController', function($scope, $http) {
+});
+</code></pre>
+
+<p>This prevents the function parameter names from being changed.</p>
+
+<div class="section-heading"> Submission Details </div>
+<p>Please submit your MP at <a href="http://uiucwp.com/#/submit">http://uiucwp.com/#/submit</a>.</p>
+
+<p>Make sure you fill out the supplemental submission form once you complete your MP. You can find the form <a href="https://drive.google.com/open?id=1ZyBVkOAEs9uWqPPxgWUFSXWprPZTbSRLXiTurqVWIt0">here</a>. The supplemental form is required!</p>
+
+<p>If you run into any issues using the submission and build system, please post on Piazza.</p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>

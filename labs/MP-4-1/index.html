@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>MP 4.1: Consuming a RESTful API</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">MP 4.1: Consuming a RESTful API</div>
+
+    	<p><span class="section-heading">Due Date - <em>November 21st</em>, 2016, 11.59PM CST</span></p>
+
+<p><span style="color: red"> Attention: </span> Please watch <a href="https://github.com/uiuc-web-programming/sp2016">this repository</a>, <a href="https://github.com/uiuc-web-programming/mp4_client_starter">this repository</a> and <a href="https://github.com/uiuc-web-programming/mp4_server_starter">this repository</a> on Github (by clicking the watch button on the top right) to make sure you receive notifications if changes are made to the MPs or the Labs.</p>
+
+<p><strong>A demo of a sample app can be seen in <a href="https://www.youtube.com/watch?v=3MoYSJj5M3g">this video</a>.</strong></p>
+
+<p><span class="section-heading">Overview</span></p>
+
+<p>In this MP, you will create a REST API (using Node, Express and Mongo) and create a front-end (using Angular) that consumes the API. This MP is split up in to two parts. Both the parts can be developed independently. When you are developing your front-end, you can test it using our reference API implementation at <a href="http://www.uiucwp.com:4000/api">http://www.uiucwp.com:4000/api</a>.</p>
+
+<p><span class="section-heading">Part A: Consuming a RESTful API using AngularJS</span></p>
+
+<p><strong>The Basic Goal</strong> : Create a single-page AngularJS task management app that uses our API.</p>
+
+<p><strong>The Fun Goal</strong> : Imagine your hot new startup, Llama.io, is creating the best looking todo webapp on the market. You’re competing in a crowded space with hot players like Asana, Wunderlist, Google Keep, etc, so your app has to look amazing. Best looking implementations will get showcased in class and go in our newly created hall of fame!</p>
+
+<p>Requirements:</p>
+<ol>
+<li> Your app should have the following views:
+	<ol>
+		<li>
+		Settings:
+			<ul>
+				<li>Should at least have a way to specify the URL to the API </li>
+	    	</ul>
+		</li>
+	    <li>
+	    User List:
+	    <ul>
+	    	<li>List **all** user names. The API should be called only to return the needed information about each user (user name and email). Clicking on a user should take us to the User Details view.</li>
+	    	<li>Have a button to create a new user that takes you to Add User view. </li>
+	    	<li>**Have a delete button next to each displayed user.**</li>
+		</ul>
+	    </li>
+	    <li>
+	    Task List:
+	    <ul>
+	    	<li>List task names (use **pagination** to display only 10 at a time) with the name of the assigned user next to it. The API should be called only to return the needed information about each task (name, \_id, assignedUserName). Clicking on a task should take us to the Task Details view.</li>
+	    	<li>Have an input (for example radio buttons) to show "All", "Completed" or "Pending" tasks. By default it should show the Pending tasks. Changing the input should result in an API call (no filtering on the front-end).</li>
+	    	<li>Have next and previous buttons. </li>
+	    	<li>Have a button to create a new task that takes you to Add Task view.</li>
+	    	<li>Have a sort-by dropdown menu with appropriate options (name, username, dateCreated, deadline) and ascending/descending radio buttons. Any change to the sorting inputs should result in an API call that gets the new data (we do not want you to sort or filter data in the front-end).</li>
+	    	<li>**Have a delete button next to each displayed task.**</li>
+	    	<li>If a task is deleted, it should be deleted from the `pendingTasks` array of the user it was assigned to </li>
+		</ul>
+	    </li>
+	  <li>
+	  User Details:
+	  <ul>
+	  	<li>Show details about the user (name, email)</li>
+	  	<li>Show a list of pending tasks that the user has. This should be generated by making an API call to the tasks endpoint with query string parameters to perform appropriate filtering. There should be a way to mark each task as complete. As soon as a task is marked as complete, it should make an API call and then dissapear from that list. Also, clicking on a task should take us to the Task Details view.</li>
+	  	<li>A button to Load completed tasks by this user.</li>
+	  	<li>If a user is deleted, all pending tasks that the user had should be updated to have `assignedUserName` changed to "unassigned"</li>
+		</ul>
+	</li>
+	  <li>
+	  Task Details:
+	  <ul>
+	  	<li>Show details about the task (name, description, user assigned to etc.)</li>
+	  	<li>Have a edit task button that takes you to Edit Task view</li>
+	  	<li>Have a way to change the completion status of the tasks. When that is changed an API call should be made to change the status. </li>
+	</ul>
+	</li>
+	<li>Add User: should have name and email fields </li>
+	<li>Add Task: should have name, description, deadline and a dropdown menu to choose an assigned user</li>
+	<li>Edit Task	</li>
+	</ol>
+</li>
+<li> Data (say when editing a user's name) should change on the front-end only after the data is successfully changed on the server through the API. If the API call results in an error, the front end should display the error message (from the "message" field of the response). </li>
+<li> Your app should use partials and routes to implement all the different views listed above. </li>
+<li> You app should interact with the API only through custom service(s) that you write. You would have to inject these services into your controllers. </li>
+<li>You should have client side validation to ensure that
+	<ol>
+		<li>
+			Users cannot be created (or updated) without a name or email. Also check for the validity of the email provided. These fields should be marked with a red * to indicate that they are required and an error message should pop up when users don't comply.
+		</li>
+		<li>
+			Tasks cannot be created (or updated) without a name or a deadline. These fields should be marked with a red * to indicate that they are required and an error message should pop up when users don't comply.
+		</li>
+	</ol>
+</li>
+<li>
+	All your date entry fields should use a graphical date picker (wer recommend [this one](http://720kb.github.io/angular-datepicker/)).
+</li>
+</ol>
+
+<p><span class="section-heading">API Reference</span></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Endpoints</th>
+      <th>Actions</th>
+      <th>Intended Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>users</td>
+      <td>GET</td>
+      <td>Respond with a List of users</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>POST</td>
+      <td>Create a new user. Respond with details of new user</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>OPTIONS</td>
+      <td>See the last tip at the bottom of the page</td>
+    </tr>
+    <tr>
+      <td>users/:id</td>
+      <td>GET</td>
+      <td>Respond with details of specified user or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>PUT</td>
+      <td>Replace entire user with supplied user or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>DELETE</td>
+      <td>Delete specified user or 404 error</td>
+    </tr>
+    <tr>
+      <td>tasks</td>
+      <td>GET</td>
+      <td>Respond with a List of tasks</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>POST</td>
+      <td>Create a new task. Respond with details of new task</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>OPTIONS</td>
+      <td>See the last tip at the bottom of the page</td>
+    </tr>
+    <tr>
+      <td>tasks/:id</td>
+      <td>GET</td>
+      <td>Respond with details of specified task or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>PUT</td>
+      <td>Replace entire task with supplied task or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>DELETE</td>
+      <td>Delete specified user or 404 error</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition, the API has the following JSON encoded query string parameters for the GET requests to the <code>users</code> and <code>tasks</code> endpoints:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paramter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>where</td>
+      <td>filter results based on JSON query</td>
+    </tr>
+    <tr>
+      <td>sort</td>
+      <td>specify the order in which to sort each specified field  (1- ascending; -1 - descending)</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>specify the set of fields to include or exclude in each document  (1 - include; 0 - exclude)</td>
+    </tr>
+    <tr>
+      <td>skip</td>
+      <td>specify the number of results to skip in the result set; useful for pagination</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>specify the number of results to return (default should be 100 for tasks and unlimited for users)</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>if set to true, return the count of documents that match the query (instead of the documents themselves)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here are some example queries and what they would return:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Query</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?where={"_id": "55099652e5993a350458b7b7"}</code></td>
+      <td>Returns a list with a single user with the specified ID</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/tasks?where={"completed": true}</code></td>
+      <td>Returns a list of completed tasks</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/tasks?where={"_id": {"$in": ["235263523","3872138723"]}}</code></td>
+      <td>Returns a set of tasks</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?sort={"name": 1}</code></td>
+      <td>Returns a list of users sorted by name</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?select={"_id": 0}</code></td>
+      <td>Returns a list of users without the _id field</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?skip=60&amp;limit=20</code></td>
+      <td>Returns user number 61 to 80</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>The API should be able to handle any combination of those parameters in a single request</strong>. For example, the following is a valid GET request:</p>
+
+<p><code>javascript
+http://www.uiucwp.com:4000/api/users?sort={"name": 1}&amp;skip=60&amp;limit=20
+</code></p>
+
+<p>Here is the User Schema:</p>
+
+<ol>
+  <li>“name” - String</li>
+  <li>“email” - String</li>
+  <li>“pendingTasks” - [String] - The _id fields of the <em>pending</em> tasks that this user has</li>
+  <li>“dateCreated” - Date - should be set automatically by server</li>
+</ol>
+
+<p>Here is the Task Schema:</p>
+
+<ol>
+  <li>“name” - String</li>
+  <li>“description” - String</li>
+  <li>“deadline” - Date</li>
+  <li>“completed” - Boolean</li>
+  <li>“assignedUser” - String - The _id field of the user this task is assigned to - default “”</li>
+  <li>“assignedUserName” - String - The name field of the user this task is assigned to - default “unassigned”</li>
+  <li>“dateCreated” - Date - should be set automatically by server to present date</li>
+</ol>
+
+<p><strong>We assume that each task can be assigned only to one user.</strong></p>
+
+<p>We recommend you to use the following project structure:</p>
+
+<ol>
+  <li>The main HTML file for this app should be <code>public/index.html</code>. It should contain the code that is common to all views in the app. For example, you can include all CSS and JavaScript files here. You can also have code for a navbar here.</li>
+  <li>Your app has several views (as listed above). These should be implemented using different <a href="https://docs.angularjs.org/tutorial/step_07">Angular partial templates</a> in <code>public/partials</code></li>
+  <li>Your Angular code should go in <code>js/app.js</code> except for the conrollers and services. The controllers should be in <code>js/controllers.js</code> and the services should be in <code>js/services.js</code>.</li>
+  <li>For styling, you can use the scss files in <code>scss</code> folder like you did in MP 1 or write a css file or borrow css/scss from elsewhere (such as from Foundation).</li>
+  <li>Your are free to use different Foundation components (such as <a href="http://foundation.zurb.com/docs/components/abide.html">Abide Validation</a>) or other libraries to augment your apps visual design and functionality. However, the core of your app should be written in AngularJS according to the specific details provided above.</li>
+</ol>
+
+<p>Also, here is a list of angular things that you might find useful</p>
+
+<ul>
+  <li><a href="https://docs.angularjs.org/api/ng/service/$http">$http</a></li>
+  <li><a href="http://stackoverflow.com/a/13939813">Writing an AngularJS services</a></li>
+  <li>Look at <a href="http://stackoverflow.com/questions/13937318/convert-angular-http-get-function-to-a-service">this stack overflow question</a> to understand how to write a service</li>
+  <li>Here is a [helpful beginner tutorial] for some of the technologies used in this MP.(http://adrianmejia.com/blog/2014/09/28/angularjs-tutorial-for-beginners-with-nodejs-expressjs-and-mongodb/)</li>
+  <li>Apparently, Angular always makes an <a href="http://stackoverflow.com/questions/24656488/angularjs-how-to-disable-option-request">OPTIONS request before a POST request</a>. For MP 4.1 you do not need to worry about this, but it is good to know for when you see these requests popping up in the inspector.</li>
+</ul>
+
+<p><span class="section-heading">Submission Details</span></p>
+
+<p>Please submit the first part of the MP at <a href="http://uiucwp.com/#/submit">http://uiucwp.com/#/submit</a>.</p>
+
+<p>Make sure you fill out the supplemental submission form once have finished both parts of the MP (4.1 and 4.2). You can find the form <a href="https://docs.google.com/forms/d/e/1FAIpQLSeieVb4Cn44XFflYWP9y46ltZWnuZF0k4l11FXJ5g3V3zjuwg/viewform">here</a>. The supplemental form is required!</p>
+
+<p>If you run into any issues using the submission and build system, please post on Piazza.</p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>Lab 1: Development Environment and Server Configuration</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">Lab 1: Development Environment and Server Configuration</div>
+
+    	<p><span style="color: red"> Attention: </span> Please watch <a href="https://github.com/uiuc-web-programming/fa2016">this repository</a> and <a href="https://github.com/uiuc-web-programming/mp1_starter">this repository</a> on Github (by clicking the watch button on the top right) to make sure you receive notifications if changes are made to the MPs or the Labs.</p>
+
+<p><span style="color: red"> Attention: </span> Please apply for <a href="https://education.github.com/pack">Github student developer pack</a> as soon as possible.</p>
+
+<!-- ###Setting up a Development Environment -->
+<p><span class="section-heading">SETTING UP A DEVELOPMENT ENVIRONMENT</span></p>
+
+<p>In this lab we will set up a development environment for use throughout the class. Our aim is to develop applications in an environment as close as possible to the final server our code is going to be deployed on. Also, having the same development environment for all students in class helps us debug your code faster.</p>
+
+<p>The following has been tested for Mac OS X. We anticipate that steps 1 and 2 might be different for other operating systems. You are responsible for reading the documentation in such cases.</p>
+
+<p>1 - Install <a href="https://www.virtualbox.org/">VirtualBox</a></p>
+
+<p>2 - Install <a href="https://www.vagrantup.com/">Vagrant</a></p>
+
+<p>3 -  Clone the <a href="https://github.com/uiuc-web-programming/vagrant-dev.git">vagrant-dev repository</a> from the <a href="https://github.com/uiuc-web-programming/">class github account</a> to your machine. You are encouraged to use the command line for interacting with git and Github. So, use the following command:</p>
+
+<p><code>bash
+git clone https://github.com/uiuc-web-programming/vagrant-dev.git
+</code>
+As an alternative, you can use a graphical client such as the <a href="https://mac.github.com/">Github Mac Client</a></p>
+
+<p>4 - Change to the <code>vagrant-dev</code> directory and inspect the Vagrantfile. In it we have defined what operating system we want for our virtual machine (Ubuntu in our case) and have also specified what ports of the virtual/guest machine (Ubuntu) should be forwarded to what ports of the host machine (OS X)</p>
+
+<p><code>bash
+cd vagrant-dev
+</code></p>
+
+<p>5 - Boot up the virtual machine:</p>
+
+<p><code>bash
+vagrant up
+</code>
+6 - SSH into the virtual machine once it has booted up:</p>
+
+<p><code>bash
+vagrant ssh
+</code></p>
+
+<p>7 - The <code>vagrant-dev</code> folder on your host machine is mounted as <code>/vagrant</code> in your guest machine. Change your directory to this folder. This folder remains synced between the two operating systems and is the ideal place to put your projects. That way, you can edit files using the editor on OS X and run them from the terminal in Ubuntu. Now run the <code>install.sh</code> script present in that folder.</p>
+
+<p><code>bash
+cd /vagrant
+sudo apt-get install dos2unix **#you can skip this if you are not on a Windows machine**
+dos2unix install.sh **#you can skip this if you are not on a Windows machine**
+sh install.sh
+source ~/.profile
+</code>
+8 - Go to your github account (or create one), and create a new repository named <code>mp1</code>. <strong><em>Set it to private</em></strong> (you’ll have to activate the <a href="https://education.github.com/pack">Github student developer pack</a> to be able to create private repos. The other option is to use <a href="https://bitbucket.org/">bitbucket</a>). <a href="https://help.github.com/articles/duplicating-a-repository/">Create a duplicate</a> of the <a href="https://github.com/uiuc-web-programming/mp1_starter">MP-1 starter code</a> from the class github repo by using the commands below</p>
+
+<p><code>bash
+git clone --bare https://github.com/uiuc-web-programming/mp1_starter.git
+cd mp1_starter.git
+git push --mirror https://github.com/your-github-username/mp1.git
+# **Mirror-push to your mp1 repository. Use your github username in the URL. Change the URL if you're using bitbucket.**
+cd ..
+rm -rf mp1_starter.git
+</code>
+Then clone it to your machine and inspect the files inside by using the following commands</p>
+
+<p><code>bash
+git clone https://github.com/your-github-username/mp1
+cd mp1
+</code></p>
+
+<p>10 - Install the NPM packages needed for the project. This reads the <code>package.json</code> files and installs the packages in the <code>node_packages</code> folder. If you have Windows on your host machine, you need to add the <code>--no-bin-links</code> option to this command.</p>
+
+<p><code>bash
+npm install
+</code></p>
+
+<p>11 - Install front-end packages (only jQuery in our case) using bower. This reads the <code>bower.json</code> files and installs the packages in the <code>public/lib</code> folder.</p>
+
+<p><code>bash
+bower install
+</code></p>
+
+<p>12 - Now use grunt to compile the scss files located at <code>source_sass</code>. The output will be saved in <code>public/css</code> folder</p>
+
+<p><code>bash
+grunt compass
+</code>
+13 - Now use grunt to uglify the javascript files located at <code>source_js</code>. The output will be saved in <code>public/js</code> folder</p>
+
+<p><code>bash
+grunt uglify
+</code></p>
+
+<p>14 - Serve the files using grunt.</p>
+
+<p><code>bash
+grunt serve
+</code>
+<span style="color: blue"> Note: </span> The last three steps can be done together by just saying <code>grunt</code>.</p>
+
+<p>15 - Open your browser and point it to <code>localhost:3000</code>. You should see the served webpage there. If you leave grunt running and now make changes to the files in the <code>source_sass</code> folder, the <code>source_js</code> folder and the <code>public/index.html</code> file, you will see the webpage reload automatically. This is done through <a href="https://github.com/gruntjs/grunt-contrib-watch#optionslivereload">grunt livereload</a>. This way you can code away on your code editor while seeing changes in the browser side by side.</p>
+
+<p>16 - Now implement MP1 by writing your code in the <code>source_sass</code> folder, the <code>source_js</code> folder, the <code>public/index.html</code> file and the <code>public/media</code> folder. Push changes to your <code>mp1</code> repo on github.</p>
+
+<p><span style="color: red"> Warning: </span>  <strong>Do not edit anything under the <code>public/css</code> or <code>public/js</code> folders.</strong> All things there are auto-generated and any changes you make there will get overwritten by Grunt.</p>
+
+<p>17 - You can stop grunt by using <code>ctrl+c</code>. You can exit the vagrant guest VM by saying <code>exit</code>.</p>
+
+<p><span class="section-heading">SETTING UP A SERVER</span></p>
+
+<p>If you are officially enrolled in the class, you will receive a Virtual Machine from the course staff. Once you have the login credentials, you can ssh into the vm:</p>
+
+<p><code>bash
+ssh cs498rk@[insert your hostname here]
+</code></p>
+
+<p>Type in your password, and now repeat the steps in the previous section to clone your repository.</p>
+
+<p>Start screen and serve the files by running the expressjs server. You’ll first need to install screen:
+<code>
+sudo apt-get install screen
+</code></p>
+
+<p>You’ll need to enter your password in to install it. You’ll only need to do this one time.</p>
+
+<p><code>bash
+screen
+node app.js
+</code>
+The webpage should be up at http://[your hostname here]:3000 . Check that in your browser.</p>
+
+<p>Detach from screen and logout</p>
+
+<p><code>
+ctrl+a followerd by d
+exit
+</code></p>
+
+<p>Keep the server running till MP 1 is graded. To stop the server in the future login to your server, reattach to screen and stop the server</p>
+
+<p><code>
+ssh cs498rk@[insert your hostname here]
+screen -r
+ctrl+d
+exit # exit from screen
+exit # exit from server
+</code></p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>

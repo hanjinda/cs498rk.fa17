@@ -1,0 +1,291 @@
+@import url(//fonts.googleapis.com/css?family=Maven+Pro:400,500);
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,800);
+@import url(//fonts.googleapis.com/css?family=Raleway:200,300,400,600);
+@import url(//fonts.googleapis.com/css?family=Abril+Fatface:400);
+
+$title_font: 'Abril Fatface', sans-serif;
+$section_heading_font:'Maven Pro', sans-serif;
+$heading_font:'Source Sans Pro', sans-serif;
+$body_font: 'Source Sans Pro', sans-serif;
+$nav_font: 'Maven Pro', sans-serif;
+
+$text_color: #181818;
+$link_color: #00cf84; // orange
+$heading_color: #144057; // dark navy blue
+$stripe_color: #e2e8ea; // blue gray
+$note_color: #ff500a; // green
+
+$border_color: #ff500a;
+$border_thickness: 4px;
+
+
+body {
+  font-family: $body_font;
+  font-size: 14px;
+  color: $text_color;
+}
+
+html:before,html:after,body:before,body:after{
+    content:"";
+    background:$border_color;
+    position:fixed;
+    display:block;
+    z-index:5;
+}
+
+html:before{
+    height:$border_thickness;
+    left:0;
+    right:0;
+    top:0;
+}
+html:after{
+    width:$border_thickness;
+    top:0;
+    right:0;
+    bottom:0;
+}
+body:before{
+    height:$border_thickness;
+    right:0;
+    bottom:0;
+    left:0;
+}
+body:after{
+    width:$border_thickness;
+    top:0;
+    bottom:0;
+    left:0;
+}
+
+a {
+  color: $link_color;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link_color;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none
+}
+
+.nav {
+  font-family: $nav_font;
+  font-size: 14px;
+  text-align: right;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.heading {
+  color: $heading_color;
+  font-family: $section_heading_font;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.week-heading {
+  margin-top: 60px;
+  text-align: center;
+  color: $heading_color;
+  font-family: $section_heading_font;
+  font-size: 14px;
+   -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+}
+
+.subheading {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.date-heading {
+  font-family: $heading_font;
+  margin-bottom: 12px;
+}
+
+.course_header {
+  margin-bottom: 25px;
+  height:280px;
+
+//  background-color: $heading_color;
+
+  font-family: $title_font;
+  font-size: 48px;
+  line-height: 40px;
+  text-align: center;
+  color: $heading_color;
+
+}
+.course_title_above {
+  font-weight: 400;
+  font-size: 36px;
+  margin-bottom: 10px;
+
+  a {
+    font-weight: 400;
+    color: $heading_color;
+  }
+}
+.course_title {
+  //font-family: $nav_font;
+  margin-bottom: 25px;
+
+  a {
+    font-weight: 400;
+    color: $heading_color;
+  }
+}
+
+
+.stripe {
+  background-color: $stripe_color;
+}
+
+.stripe2 {
+  max-width: 100%;
+  font-size: 13px;
+  background-color: $stripe_color;
+}
+
+.announcement {
+  text-align: center;
+  height:32px;
+  padding-top: 6px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+.week {
+  padding: 20px 0px !important;
+  height: 180px;
+}
+
+@media #{$medium-only} {
+  .announcement {
+    height:48px;
+  }
+}
+
+@media #{$small-only} {
+  .nav {
+    text-align: center;
+  }
+
+  .announcement {
+    height:64px;
+  }
+
+  .course_title {
+    font-size: 36px;
+  }
+
+  .course_title_above {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+
+  .course_header {
+    height: 300px;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .week {
+    height: 220px;
+  }
+
+
+}
+
+.course_schedule {
+  font-family: $nav_font;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.course_description {
+  line-height: 25px;
+  text-align: justify;
+}
+
+.paragraph {
+  text-align: justify;
+  letter-spacing: .3px;
+  margin-bottom: 12px;
+}
+
+.course_staff {
+  .member {
+    font-family: $heading_font;
+    margin-bottom: 6px;
+    .name {
+      font-weight: 600;
+    }
+    .room {
+    }
+    .hours {
+    }
+  }
+}
+
+
+.assignment {
+    font-family: $heading_font;
+    font-weight: 400;
+    color: $note_color;
+    margin-top: 10px;
+}
+
+
+.example {
+  margin-bottom:22px;
+  .heading {
+    font-size: 14px;
+    font-family: $body_font;
+    font-weight: 400;
+  }
+}
+
+.description {
+    font-size: 12px;
+}
+
+.requirement {
+  margin-bottom: 6px;
+}
+
+.grading-breakdown {
+  font-family: $heading_font;
+  margin-bottom: 6px;
+}
+
+.topic, .discussants {
+  margin-bottom: 6px;
+}
+
+.topic {
+  font-weight: 600;
+}
