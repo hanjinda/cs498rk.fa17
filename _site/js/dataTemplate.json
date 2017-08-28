@@ -1,0 +1,613 @@
+{
+  "title": "The Art of Web Programming",
+  "schedule": "CS498RK&nbsp;Monday and Wednesday&nbsp;2-3.15PM&nbsp;DCL 1320",
+  "description": "Presents client- and server-side technologies that enable modern Web applications. Topics include the building blocks of the Web (HTML, CSS, the Document Object Model, JavaScript) and data exchange (HTTP, JSON, RESTful APIs, and SQL/NoSQL databases). Programming assignments will expose students to CSS preprocessors, grid systems, and full-stack JavaScript frameworks that scaffold development and testing. In addition, students will work in teams to design, implement and deploy a full-featured web application. Prerequisites: CS225.",
+  "staff": [
+    {
+      "name": "Ranjitha Kumar",
+      "room": "SC 4224",
+      "hours": "Wed 1-2pm"
+    },
+    {
+      "name": "Sujay Khandekar",
+      "room": "SC 0207",
+      "hours": "Thu 11-12pm"
+    },
+    {
+      "name": "Biplab Deka",
+      "room": "SC 0207",
+      "hours": "TBD"
+    },
+    {
+      "name": "Konstantinos Koiliaris",
+      "room": "SC 0207",
+      "hours": "Mon 1-2pm"
+    },
+    {
+      "name": "Jinda Han",
+      "room": "SC 0207",
+      "hours": "Tue 2-3pm"
+    },
+    {
+      "name": "Tanvi Agarwalla",
+      "room": "",
+      "hours": ""
+    },
+    {
+      "name": "James Lee",
+      "room": "",
+      "hours": ""
+    },
+    {
+      "name": "Simon Lu",
+      "room": "",
+      "hours": ""
+    },
+    {
+      "name": "Sanchay Javeria",
+      "room": "",
+      "hours": ""
+    },
+    {
+      "name": "Arjun Menon",
+      "room": "",
+      "hours": ""
+    },
+    {
+      "name": "Goutham Pakalapati",
+      "room": "",
+      "hours": ""
+    }
+  ],
+  "requirements": [
+    {
+      "text":"MPs",
+      "link":"mps.html"
+    },
+    {
+      "text":"Final Project",
+      "link":"project.html"
+    }
+  ],
+  "syllabus": [
+    { "week": 1,
+      "classes": [
+        {
+          "date": "Aug 28",
+          "topic": "Introduction",
+          "slides": "",
+          "description": "",
+          "readings": [
+          ]
+        },
+        {
+          "date": "Aug 30",
+          "topic": "HTML + DEV LAB: Environment Setup",
+          "slides": "",
+          "description": "Document Object Model, Layout Engines",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "classes": [
+        {
+          "date": "Sep 4",
+          "topic": "Labor Day -- NO CLASS",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Sep 6",
+          "topic": "CSS + DEV LAB: Submission System",
+          "slides": "",
+          "description": "Selectors, Box Model, Preprocessors",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "classes": [
+        {
+          "date": "Sep 11",
+          "topic": "JavaScript",
+          "slides": "",
+          "description": "ES5, ES6, TypeScript",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "MP0 Due"
+        },
+        {
+          "date": "Sep 13",
+          "topic": "JavaScript",
+          "slides": "",
+          "description": "Events, DOM manipulation",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "classes": [
+        {
+          "date": "Sep 18",
+          "topic": "DataBinding + React",
+          "slides": "",
+          "description": "HTTP, AJAX, JSON, Components",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Sep 20",
+          "topic": "GUEST LECTURE: Facebook",
+          "slides": "",
+          "description": "React",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "🌮 Taco Social"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "classes": [
+        {
+          "date": "Sep 25",
+          "topic": "APIs",
+          "slides": "",
+          "description": "REST",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "MP1 Due"
+        },
+        {
+          "date": "Sep 27",
+          "topic": "DEV LAB: React",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "classes": [
+        {
+          "date": "Oct 2",
+          "topic": "Databases",
+          "slides": "",
+          "description": "SQL, NoSQL, Graph DBs",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Oct 4",
+          "topic": "Node, Express",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "classes": [
+        {
+          "date": "Oct 9",
+          "topic": "Async Programming",
+          "slides": "",
+          "description": "Callback Hell, Promises",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "MP2 Due"
+        },
+        {
+          "date": "Oct 11",
+          "topic": "NERD Stack Review",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "classes": [
+        {
+          "date": "Oct 16",
+          "topic": "IN-CLASS MIDTERM",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Oct 18",
+          "topic": "Review Midterm",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "classes": [
+        {
+          "date": "Oct 23",
+          "topic": "DEV LAB: React Native",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "authors": "",
+              "venue": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Oct 25",
+          "topic": "DEV LAB: WebSockets & Chatbots",
+          "slides": "",
+          "description": "Socket.IO, Facebook Messenger Chatbot",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "classes": [
+         {
+          "date": "Oct 30",
+          "topic": "UI/UX App Design",
+          "slides": "",
+          "description": "Ideation, Prototyping",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "MP3 Due"
+        },
+        {
+          "date": "Nov 1",
+          "topic": "Responsive Design",
+          "slides": "Mobile-First, Grids, Flexbox",
+          "description": "",
+          "readings": [
+          ],
+          "projectnote": "FP Groups and Proposals Due"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "classes": [
+        {
+          "date": "Nov 6",
+          "topic": "Users",
+          "slides": "",
+          "description": "Cookies, Sessions, Authentication",
+          "readings": [
+            {
+            }
+          ]
+        },
+        {
+          "date": "Nov 8",
+          "topic": "Security & Attacks",
+          "slides": "",
+          "description": "CORS, Caching",
+          "readings": [
+          ]
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "classes": [
+        {
+          "date": "Nov 13",
+          "topic": "DEV LAB: Services",
+          "slides": "",
+          "description": "BaaS, Cloud",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Nov 15",
+          "topic": "GUEST LECTURE",
+          "slides": "",
+          "description": "Large-scale Web Apps",
+          "readings": [
+          ]
+        }
+      ]
+    },
+    {
+      "week": 13,
+      "classes": [
+        {
+          "date": "Nov 20",
+          "topic": "🦃 Thanksgiving Break -- NO CLASS",
+          "slides": "",
+          "description": "",
+          "readings": [
+          ]
+        },
+        {
+          "date": "Nov 22",
+          "topic": "🦃 Thanksgiving Break -- NO CLASS",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 14,
+      "classes": [
+        {
+          "date": "Nov 27",
+          "topic": "IN-CLASS FP DESIGN LAB",
+          "slides": "",
+          "description": "Heuristic Evaluation",
+          "readings": [
+          ],
+          "projectnote": "FP Functional Prototypes Due"
+        },
+        {
+          "date": "Nov 29",
+          "topic": "IN-CLASS FP DESIGN LAB",
+          "slides": "",
+          "description": "Heuristic Evaluation",
+          "readings": [
+          ]
+        }
+      ]
+    },
+    {
+      "week": 15,
+      "classes": [
+        {
+          "date": "Dec 4",
+          "topic": "Usability and A/B Testing",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Dec 6",
+          "topic": "JS Testing",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 16,
+      "classes": [
+        {
+          "date": "Dec 11",
+          "topic": "GUEST LECTURE",
+          "slides": "",
+          "description": "Performant Web Apps",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "date": "Dec 13",
+          "topic": "Wrap-up",
+          "slides": "",
+          "description": "",
+          "readings": [
+            {
+              "title": "",
+              "link": ""
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ],
+          "projectnote": "🏆 FP Competition @ Research Park TBD"
+        }
+      ]
+    }
+  ]
+}
