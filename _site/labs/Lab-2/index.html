@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>Lab 2: Setting up a Foundation project</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">Lab 2: Setting up a Foundation project</div>
+
+    	<p>1 - Open the terminal and point it to the <code>vagrant-dev</code> folder from MP 1.</p>
+
+<p>2 - Fire up vagrant and ssh into it. Change directories to <code>\vagrant</code>.</p>
+
+<p><code>bash
+vagrant up
+vagrant ssh
+cd /vagrant
+</code></p>
+
+<p>3 -  Go to your github account (or create one) and create a new repository named <code>mp2</code>. <strong><em>Set it to private</em></strong> (you’ll have to activate the <a href="https://education.github.com/pack">Github student developer pack</a> to be able to create private repos. The other option is to use <a href="https://bitbucket.org/">bitbucket</a>). <a href="https://help.github.com/articles/duplicating-a-repository/">Create a duplicate</a> of the <a href="https://github.com/uiuc-web-programming/mp2_starter">MP-2 starter code</a> from the class github repo by using the commands below</p>
+
+<p><code>bash
+git clone --bare https://github.com/uiuc-web-programming/mp2_starter.git
+cd mp2_starter.git
+git push --mirror https://github.com/your-github-username/mp2.git
+# Mirror-push to your mp2 repository. Use your github username in the URL. Change the URL if you're using bitbucket.
+cd ..
+rm -rf mp2_starter.git
+</code>
+<br />
+<span style="color: red"> <strong>Attention:</strong> </span> <strong>Please add <code>uiuc-web-programming</code> as a collaborator on Github.</strong></p>
+
+<p>Then clone it to your machine and inspect the files inside by using the following commands</p>
+
+<p><code>bash
+git clone https://github.com/your-github-username/mp2
+cd mp2
+</code></p>
+
+<p>4 - Install the necessary npm and bower modules, uglify the Javascript, compile the scss files and finally serve the sample webpage</p>
+
+<p><code>bash
+npm install #if you are on Windows use: npm install --no-bin-links
+bower install
+grunt uglify
+grunt compass
+grunt
+</code></p>
+
+<p>You should be able to see the sample webpage at <code>http://localhost:3000</code>.</p>
+
+<p>5 - You can then develop your MP locally and push changes to your Github. When you are ready to host in on the server, you can pull your code from the github repository as you did for MP1.</p>
+
+<p>6 - If you use additional libraries, make sure that all libraries get installed when we do <code>npm install</code> and <code>bower install</code> after cloning your MP 2 code repo (this can be done by adding the libraries in the <code>packages.json</code> or <code>bower.json</code> file.</p>
+
+<p><span style="color: red"> <strong>Attention:</strong> </span> <strong>Please add <code>uiuc-web-programming</code> as a collaborator on Github.</strong></p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>

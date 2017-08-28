@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>MP 3 Demystified</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">MP 3 Demystified</div>
+
+    	<p>Welcome to AngularJS! Time to delve into one of most powerful frontend frameworks in the world. Your goal again for this MP is to get your feet wet with Angular before we get into MP4, which has both a frontend and backend component.</p>
+
+<p><span class="section-heading">Why Angular?<span></span></span></p>
+
+<p>It’s designed for declaring dynamic views in web-applications, it’s extremely powerful, and it’s backed and supported by Google. It’s also very widely used so StackOverflow should be your friend for debugging.</p>
+
+<p><b>However, </b> Angular can be tricky to debug and weird to learn at first glance. When debugging, most of our experiences in this class and with using Angular have taught us that <u>weird errors often occur with misspelling variable names and/or not using exact Angular syntax</u>. So definitely double check those before posting to Piazza or checking StackOverflow to save you some time. Just for reference, we are using Angular version 1.3.13. As far syntax goes, here are some useful things to know for this MP:</p>
+
+<p><span class="section-heading">ng-app<span></span></span></p>
+
+<p>In Angular, you need to define a module to get started on your app.</p>
+
+<pre><code>var app = angular.module('myFirstAngularApp',['ngRoute']);
+</code></pre>
+
+<p>This is the initial declaration of our app and everything we do will be modifying the app through dot notation (.config, .controller, etc). The <code>ngRoute</code> is there loaded in as a dependency that we will use later for routing.</p>
+
+<p>The accompanying HTML inserts the name we declared (myFirstAngularApp) into the HTML markup.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;body</span> <span style="color:#b48">ng-app</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">myFirstAngularApp</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+</pre></div>
+</div>
+</div>
+
+<p>Usually, the ng-app directive is placed in the body or html tag of the page so that it can encompass all of the HTML markup.</p>
+
+<p><span class="section-heading">ng-controller<span></span></span></p>
+
+<p>Now, we want to define a controller where we can declare some code to work on displaying the code to the frontend. A basic controller definition is done like this:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>app.controller(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">myFirstController</span><span style="color:#710">'</span></span>, [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$scope</span><span style="color:#710">'</span></span>,  <span style="color:#080;font-weight:bold">function</span>(<span style="color:#369;font-weight:bold">$scope</span>) {
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#369;font-weight:bold">$scope</span>.myFirstVariable = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>}]);
+</pre></div>
+</div>
+</div>
+<p><br /></p>
+
+<p>The controller is appended to the overall Angular app, has a name (myFirstController), and it is passed in the $scope variable into the array and as a parameter in the callback function. The $scope variable is something that Angular gives us so that we can control aspects of the data model that we share with the HTML markup of the application. The <code>$scope.myFirstVariable</code> declaration creates the variable in that controller’s scope and that variable can be accessed in the HTML, and the same can be done for functions. Declaring variables or functions in the standard JS manner without making them a part of the $scope Object will not make them available in the markup.</p>
+
+<p>Here is the accompanying HTML:</p>
+
+<pre><code>&lt;div ng-controller="myFirstController"&gt;
+{ { myFirstVariable } }
+&lt;/div&gt;
+</code></pre>
+
+<p>The location of the ng-controller directive should be based in the topmost HTML tag you want the controller to encompass. i.e. in the example above, the controller will encompass and cover everything inside the div. The `` notation takes any variables that are attached to the $scope object and you can display them in the HTML markup.</p>
+
+<p>NOTE: the ng-controller directive will be superfluous when we get to routing.</p>
+
+<p><span class="section-heading">$http<span></span></span></p>
+
+<p>When working with this MP, you’ll need to retrieve some data in a JSON format. Thankfully, we have already crawled the data for you, and it should be located in the <code>public/data</code> folder. Inside your controller, you can use the $http Angular variable to get that data:</p>
+
+<pre><code>$http.get('/someUrl').
+  success(function(data) {
+  }).
+  error(function(err) {
+  });
+</code></pre>
+<p><br /></p>
+
+<p><span class="section-heading">ngRoute<span></span></span></p>
+
+<p>Now, we will have three separate views in this application. To manage those views with routes, Angular can make setup very easy. In the <code>index.html</code>, you’ll have this line:</p>
+
+<pre><code>&lt;div ng-view&gt;&lt;/div&gt;
+</code></pre>
+<p><br />
+In short, whenever we request a particular partial from our <code>/partial</code> folder, Angular will take that partial’s html and put inside this div and keep replacing it depending on the route requested. Your partials can be written as regular divs without anything extra.</p>
+
+<p>Now to the JS:</p>
+
+<pre><code>app.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl : 'partials/first.html',
+            controller: 'myFirstController'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+})
+</code></pre>
+
+<p>This code allows you define a route name with <code>\</code> and then matches a partial and a controller with that route name. This means you don’t need to explicitly declare the <code>ng-controller</code> in the HTML markup too in these partials since this takes care of it for us.</p>
+
+<p><span class="section-heading">Closing<span></span></span></p>
+
+<p>That should be enough to get you started! Be sure to refer to the spec whenever you need help in a particular area and keep checking up on the Angular documentation whenever you need it.</p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>
