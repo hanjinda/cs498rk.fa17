@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    	<script src="../public/modernizr.js"></script>
+		  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    	<script src="../public/foundation.min.js"></script>
+
+        <title>MP 4.2: Creating a RESTful API</title>
+        <link rel="stylesheet" href="../css/main.css" >
+    </head>
+    <body>
+      <div class="row course_header">
+        <div class="small-12 columns">
+          <div class="nav">
+            <a href="">PIAZZA</a>&nbsp;&nbsp;&nbsp;
+            <a href="labs/">LABS AND MPS</a>&nbsp;&nbsp;&nbsp;
+            <a href="https://uiuc-web-programming.github.io/fa16/resources.html">RESOURCES</a>&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="course_title_above"><a href="https://uiuc-web-programming.github.io/fa16/">The Art and Science of</a></div>
+          <div class="course_title"><a href="https://uiuc-web-programming.github.io/fa16/" class="ng-binding">Web Programming</a></div>
+          <div class="course_schedule">
+            <div class="">CS498RK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FALL 2016 UIUC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MONDAY AND WEDNESDAY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11AM-12.15PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DCL 1310</div>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+
+
+
+    	<div class="heading">MP 4.2: Creating a RESTful API</div>
+
+    	<p><span class="section-heading">Due Date - <em>November 21st</em>, 2016, 11.59PM CST</span></p>
+
+<p><span style="color: red"> Attention: </span> Please watch <a href="https://github.com/uiuc-web-programming/sp2016">this repository</a>, <a href="https://github.com/uiuc-web-programming/mp4_client_starter">this repository</a> and <a href="https://github.com/uiuc-web-programming/mp4_server_starter">this repository</a> on Github (by clicking the watch button on the top right) to make sure you receive notifications if changes are made to the MPs or the Labs.</p>
+
+<p><strong>We will provide a script for you that will populate your own database.</strong></p>
+
+<p><span class="section-heading">Overview</span></p>
+
+<p>In this part of MP4, you will create a REST API (using Node, Express and Mongo). When you are developing the API you can test it using <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en">Postman</a>.</p>
+
+<p><span class="section-heading">Part B: Creating a RESTful API</span></p>
+
+<p>Goal: Implement an API with the following end-points (they would be preceded by something like <code>http://localhost:4000/api/</code>). Your implementation should use Node, Express and Mongoose.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Endpoints</th>
+      <th>Actions</th>
+      <th>Intended Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>users</td>
+      <td>GET</td>
+      <td>Respond with a List of users</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>POST</td>
+      <td>Create a new user. Respond with details of new user</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>OPTIONS</td>
+      <td>See the last tip at the bottom of the page</td>
+    </tr>
+    <tr>
+      <td>users/:id</td>
+      <td>GET</td>
+      <td>Respond with details of specified user or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>PUT</td>
+      <td>Replace entire user with supplied user or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>DELETE</td>
+      <td>Delete specified user or 404 error</td>
+    </tr>
+    <tr>
+      <td>tasks</td>
+      <td>GET</td>
+      <td>Respond with a List of tasks</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>POST</td>
+      <td>Create a new task. Respond with details of new task</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>OPTIONS</td>
+      <td>See the last tip at the bottom of the page</td>
+    </tr>
+    <tr>
+      <td>tasks/:id</td>
+      <td>GET</td>
+      <td>Respond with details of specified task or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>PUT</td>
+      <td>Replace entire task with supplied task or 404 error</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>DELETE</td>
+      <td>Delete specified user or 404 error</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition, your implementation should support the following JSON encoded query string parameters for the GET requests to the <code>users</code> and <code>tasks</code> endpoints:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paramter</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>where</td>
+      <td>filter results based on JSON query</td>
+    </tr>
+    <tr>
+      <td>sort</td>
+      <td>specify the order in which to sort each specified field  (1- ascending; -1 - descending)</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>specify the set of fields to include or exclude in each document  (1 - include; 0 - exclude)</td>
+    </tr>
+    <tr>
+      <td>skip</td>
+      <td>specify the number of results to skip in the result set; useful for pagination</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>specify the number of results to return (default should be 100 for tasks and unlimited for users)</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>if set to true, return the count of documents that match the query (instead of the documents themselves)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here are some example queries and what they would return:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Query</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?where={"_id": "55099652e5993a350458b7b7"}</code></td>
+      <td>Returns a list with a single user with the specified ID</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/tasks?where={"completed": true}</code></td>
+      <td>Returns a list of completed tasks</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/tasks?where={"_id": {"$in": ["235263523","3872138723"]}}</code></td>
+      <td>Returns a set of tasks</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?sort={"name": 1}</code></td>
+      <td>Returns a list of users sorted by name</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?select={"_id": 0}</code></td>
+      <td>Returns a list of users without the _id field</td>
+    </tr>
+    <tr>
+      <td><code>http://www.uiucwp.com:4000/api/users?skip=60&amp;limit=20</code></td>
+      <td>Returns user number 61 to 80</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Your API should be able to handle any combination of those parameters in a single request</strong>. For example, the following is a valid GET request:</p>
+
+<p><code>javascript
+http://www.uiucwp.com:4000/api/users?sort={"name": 1}&amp;skip=60&amp;limit=20
+</code></p>
+
+<p>Your User schema should have the following three fields:</p>
+
+<ol>
+  <li>“name” - String</li>
+  <li>“email” - String</li>
+  <li>“pendingTasks” - [String] - The _id fields of the <em>pending</em> tasks that this user has</li>
+  <li>“dateCreated” - Date - should be set automatically by server</li>
+</ol>
+
+<p>Your Task schema should have the following five fields:</p>
+
+<ol>
+  <li>“name” - String</li>
+  <li>“description” - String</li>
+  <li>“deadline” - Date</li>
+  <li>“completed” - Boolean</li>
+  <li>“assignedUser” - String - The _id field of the user this task is assigned to - default “”</li>
+  <li>“assignedUserName” - String - The name field of the user this task is assigned to - default “unassigned”</li>
+  <li>“dateCreated” - Date - should be set automatically by server to present date</li>
+</ol>
+
+<p>We assume that each task can be assigned only to one user.</p>
+
+<p>Requirements:</p>
+
+<ol>
+  <li>Your database should be on <a href="http://www.mlab.com">mLab</a>. It should contain at least 20 users and 100 tasks (about half of which should be completed) (<strong>We will provide you a script to do this after spring break.</strong>).
+    <ul>
+      <li>Responses from your API should be a JSON object with two fields. The first field should be named <code>message</code> and should contain a human readable String. The second field should be named <code>data</code> and should contain the actual JSON response object. For example, here is a valid response:</li>
+    </ul>
+  </li>
+</ol>
+
+<p><code>javascript
+{
+	"message": "OK",
+	"data": {
+				"_id": "55099652e5993a350458b7b7",
+				"email": "sid.sethupathi@gmail.com",
+	        	"name": "Sid Sethupathi"
+			}
+}
+</code></p>
+
+<ul>
+  <li>Error responses from your API should also also be a JSON object with a <code>message</code> and <code>data</code> fields. Messages have to sensible and human readable so that on the client side it can be displayed to the user. Also, it should be independent of the server side technology that you are using. For example, your API should not return an error message directly from Mongoose to the client. For examples of error messages, take a look at the API reference implementation that we have provided.</li>
+  <li>Your API should respond with appropriate <a href="http://www.restapitutorial.com/httpstatuscodes.html">HTTP status codes</a> for both successful and error responses. You should at least have the following codes: 200 (success), 201 (created), 404 (not found), 500 (server error).</li>
+  <li>You should implement the query string functionality by using the methods provided by Mongoose (as opposed to querying Mongoose for all the results and then doing the filtering/sorting/skipping etc. in your Node/Express application code).</li>
+  <li>Have server side validation for:
+    <ul>
+      <li>Users cannot be created (or updated) without a name or email. All other fields that the user did not specify should be set to reasonable values.</li>
+      <li>Multiple users with the same email cannot exist.</li>
+      <li>Tasks cannot be created (or updated) without a name or a deadline. All other fields that the user did not specify should be set to reasonable values.</li>
+    </ul>
+  </li>
+  <li>In terms of code, your routes can be defined in the <code>server.js</code> file. Your Mongoose models should however all be under the <code>models</code> directory.</li>
+</ul>
+
+<p><span class="section-heading">Tips</span></p>
+
+<ul>
+  <li>Some Mongoose parameters need a Javascript object instead of a JSON string. To do the conversion you can use something like:</li>
+</ul>
+
+<p><code>javascript
+  var myObj = eval("("+myString+")");
+</code></p>
+
+<ul>
+  <li>
+    <p>Here is a <a href="http://adrianmejia.com/blog/2014/09/28/angularjs-tutorial-for-beginners-with-nodejs-expressjs-and-mongodb/">helpful beginner tutorial</a> for some of the technologies used in this MP.</p>
+  </li>
+  <li>
+    <p>Apparently, Angular always makes a <a href="http://stackoverflow.com/questions/24656488/angularjs-how-to-disable-option-request">OPTIONS request before a POST request</a> and so your API should respond to a OPTIONS request at the endpoints where POST is implemented. You should be able to do something as simple as the following (as we are setting the response headers when we are handling the CORS stuff):</p>
+  </li>
+</ul>
+
+<p><code>javascript
+someRoute.options(function(req, res){
+      res.writeHead(200);
+      res.end();
+});
+</code></p>
+
+<p><span class="section-heading">Submission Details:</span></p>
+
+<p>Please submit the second part of the MP at <a href="http://uiucwp.com:8000/#/submit">http://uiucwp.com:8000/#/submit</a>.</p>
+
+<p>Make sure you fill out the supplemental submission form once have finished both parts of the MP (4.1 and 4.2). You can find the form <a href="https://docs.google.com/forms/d/e/1FAIpQLSeieVb4Cn44XFflYWP9y46ltZWnuZF0k4l11FXJ5g3V3zjuwg/viewform">here</a>. The supplemental form is required!</p>
+
+<p>If you run into any issues using the submission and build system, please post on Piazza.</p>
+
+
+
+			</div>
+		</div>
+	</body>
+</html>

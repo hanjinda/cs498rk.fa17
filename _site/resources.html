@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>CS498RK</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
+
+    <script src="js/angularTemplate.js"></script>
+
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body ng-app="angularTemplate">
+    <div ng-controller="AngularTemplateCtrl">
+    <!--
+      <div class="row stripe">
+        <div class="small-12 columns">
+            <div class="announcement">
+              ANNOUNCEMENT: Enrollment is at max capacity -- keep checking online for openings.
+            </div>
+        </div>
+      </div> -->
+
+        <div ng-include="'header.html'"></div> 
+
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns">
+            <div class="heading">READINGS</div>
+            <div class="section readings">
+              <ul>
+
+                <li> Good References
+                  <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web" >Web technologies for developers</a> at <a href="https://developer.mozilla.org/en-US/" >Mozilla Developer Network</a></li>
+                    <li><a href="https://shibboleth.illinois.edu/idp/Authn/UserPassword">Lynda.com</a> has a lot of great video courses on web technologies and is free to access for UIUC students.</li>
+                  </ul>
+                </li>
+
+                <li> MERN Stack
+                  <ul>
+                    <li>BOOK: Pro MERN Stack [<a href="https://vufind.carli.illinois.edu/vf-uiu/Record/uiu_8276817" >Read online via UIUC Library</a>]</li>
+                    <li><a href="http://mern.io/" >mern.io</a></li>
+                  </ul>
+                </li>
+
+                <li> React
+                  <ul>
+                    <li>
+                      BOOK: Learning React  [<a href="https://vufind.carli.illinois.edu/vf-uiu/Record/uiu_8235092">Read online via UIUC Library</a>]
+                    </li>
+                    <li>
+                      BOOK: Introduction to React [<a href="https://vufind.carli.illinois.edu/vf-uiu/Record/uiu_7868999">Read online via UIUC Library</a>]
+                    </li>
+                    <li>
+                      BOOK: Pro React [<a href="https://vufind.carli.illinois.edu/vf-uiu/Record/uiu_7974914">Read online via UIUC Library</a>]
+                    </li>
+                  </ul>
+                  
+                </li>
+
+                <li>JavaScript
+                  <ul>
+                    <li>BOOK: Eloquent JavaScript [<a href="http://eloquentjavascript.net/" >Free Online</a>]</li>
+                    <li>BOOK: JavaScript: the good parts [<a href="http://vufind.carli.illinois.edu/vf-uiu/Record/uiu_6951382" >Read online via UIUC Library</a>]</li>
+                    <li><a href="http://jstherightway.org/" >JavaScript the Right way</a></li>
+                  </ul>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="heading">TOOLS</div>
+            <div class="section tools">
+              <ul>
+
+                <li> 
+                    <a href="https://www.jetbrains.com/webstorm/" >WebStorm IDE</a> for development
+                    <ul>
+                      <li><a href="https://www.jetbrains.com/student/" >Free for Students</a></li>
+                      <li>Alternatives: <a href="http://www.sublimetext.com/3" >Sublime Text 3</a>, <a href="http://brackets.io/" >Brackets</a>, <a href="https://atom.io/" >Atom</a></li>
+                      <li>Useful Plugins: <a href="http://emmet.io/" >Emmet</a></li>
+                       <li>Resources:
+                        <ul>
+                          <li><a href="https://www.youtube.com/watch?v=PNZJox8pkls&list=PLQ176FUIyIUb0zTe7k4ZKkhMsR-slKu3w">Video Tutorials</a></li>
+                          <li><a href="http://blog.jetbrains.com/webstorm/2014/05/guide-to-node-js-development-with-webstorm/">Guide to Node.js Development with WebStorm</a></li>
+                          <li><a href="http://blog.jetbrains.com/webstorm/2014/06/mean-stack-walkthrough-and-tips/">MEAN Stack Walkthrough and Tips</a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                  <li> 
+                    <a href="https://developer.chrome.com/devtools" >Chrome DevTools</a> for the Chrome browser
+                    <ul>
+                      <li>Alternatives: <a href="https://developer.mozilla.org/en-US/Firefox/Developer_Edition" >Mozilla Developer Edition</a></li>
+                      <li>Useful Plugins: <a href="https://chrome.google.com/webstore/detail/builtwith-technology-prof/dapjbgnjinbpoindlpdmhochffioedbn?hl=en" >BuiltWith</a>,  <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en" >Postman</a></li>
+                    </ul>
+                </li>
+
+                <li> 
+                    <a href="https://www.vagrantup.com/" >Vagrant</a>  for setting up a development environment
+                 </li>
+
+                 <li> 
+                    <a href="https://github.com/" >Github</a> for source control and collaboration
+                    <ul>
+                      <li>Get the <a href="https://education.github.com/pack" >Student Developer Pack</a></li>
+                      <li>Resources:
+                        <ul>
+                          <li><a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1">Understanding GitHub - A Journey For Beginners</a></li>
+                          <li><a href="https://guides.github.com/activities/hello-world/">GitHubGuides - Hello World</a></li>
+                          <li><a href="https://try.github.io/levels/1/challenges/1">TryGit - Learn Git in 15 Minutes:</a></li>
+                          <li><a href="https://training.github.com/kit/foundations/">GitHub Foundations</a></li>
+                          <li><a href="https://www.youtube.com/user/GitHubGuides">GitHubGuides YouTube Channel</a></li>
+                        </ul>
+                      </li>
+
+                    </ul>
+                </li>
+
+                <li> 
+                    <a href="https://www.digitalocean.com/" >DigitalOcean</a> for hosting 
+                    <ul>
+                      <li>$100 credit with the <a href="https://education.github.com/pack" >Github Student Developer Pack</a></li>
+                    </ul>
+                </li>
+
+                 <li> 
+                    <a href="http://nodejs.org/">Node.js</a> for server side Javascript 
+                 </li>
+
+                 <li> 
+                    <a href="http://expressjs.com/">Express</a> as a web server
+                 </li>
+
+                 <li> 
+                    <a href="http://gruntjs.com/" >Grunt</a> for task automation
+                    <ul>
+                      <li>Alternatives: <a href="http://gulpjs.com/" >Gulp</a></li>
+                    </ul>
+                </li>
+
+                <li> 
+                    <a href="http://foundation.zurb.com/">Foundation</a> a responsive front-end framework
+                    <ul>
+                      <li>Alternatives: <a href="http://foundation.zurb.com/apps/" >Foundation for Apps</a>, <a href="http://getbootstrap.com/" >Bootstrap</a>, <a href="http://susy.oddbird.net/" >Susy</a>(lightweight), <a href="http://purecss.io/">PureCSS</a></li>
+                    </ul>
+                 </li>
+
+                <li>Fonts
+                    <ul>
+                      <li> <a href="http://www.google.com/fonts">Google Web Fonts</a></li>
+                      <li> <a href="http://hellohappy.org/beautiful-web-type/">Beautiful Web Type</a></li>
+                      
+                      
+                    </ul>
+                  </li>
+                  <li> Glyphs and Icons
+                    <ul>
+                    <li><a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+                      <li><a href="http://thenounproject.com/">The Noun Project</a></li>
+                      <li><a href="http://www.flaticon.com/">FlatIcon</a></li>
+                      <li><a href="http://one-div.com/">One-Div</a></li>
+                    </ul>
+                  </li>
+
+                 <li>MIscellaneous
+                  <ul>
+                    
+                    <li> <a href="http://subtlepatterns.com/">Subtle Patterns</a> a collection of background patterns</li>
+                    <li> <a href="http://voiceandtone.com/">Voice and Tone</a> tips on how to have a consistent and appropriate tone</li>
+
+                  </ul>
+                 </li>
+                
+              </ul>
+            </div>
+            
+
+<!--             <div class="heading">MISCELLANEOUS</div>
+            <div class="section miscellaneous"> -->
+              
+
+
+          </div>
+    
+      </div>
+
+    </div>
+  </body>
+</html>

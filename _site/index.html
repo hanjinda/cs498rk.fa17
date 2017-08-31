@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <title>CS498RK</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
+
+    <script src="js/angularTemplate.js"></script>
+
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body ng-app="angularTemplate">
+    <div ng-controller="AngularTemplateCtrl">
+      <div class="row stripe2">
+        <div class="small-12 columns">
+            <div class="announcement">
+              ANNOUNCEMENTS: To get on the waitlist, please fill out this <a href="https://goo.gl/forms/Wc2tOrKdlyQ0NUwv1">survey</a>; do not email Ranjitha directly.
+            </div>
+        </div>
+      </div>
+
+      <div ng-include="'header.html'"></div>
+
+      <div class="row">
+          <div class="small-12 medium-9 large-9 columns">
+            <div class="section mobile-only">
+              <img alt="Client-Server Architecture" src="images/client_server.png">
+            </div>
+            <div class="section">
+              <div class="heading">OVERVIEW</div>
+              <div class="course_description">{{courseInfo.description}}</div>
+            </div>
+            <div class="section">
+              <div class="heading">LECTURES AND LABS</div>
+              <div class="course_description">
+                This course consists of lectures and labs. While lectures cover conceptual and theoretical material, labs walk students through concrete code and help them get started on the assignments. To get the most out of the lab sessions, students should <span style="font-weight:600">bring their laptops to class</span> and follow along.
+              </div>
+            </div>
+            <div class="section">
+              <div class="heading">ASSIGNMENTS</div>
+              <div class="course_description">
+                This course centers around four MPs, and a final project (FP), in which students build an original web application in 3-4 person teams. Late assignments will receive absolutely no credit; however, each student gets <span style="font-weight:600">three 24-hour late days</span> that can be used for MPs. (Late days cannot be used for the final project.)
+              </div>
+            </div>
+            <div class="section">
+              <div class="heading">EXAMS</div>
+              <div class="course_description">
+                There is an <span style="font-weight:600">in-class midterm on October 16th</span>; if you cannot attend the midterm for some reason, you will need to make alternative arrangements at least two weeks in advance. There is no final exam.
+              </div>
+            </div>
+            <div class="section">
+              <div class="heading">ACADEMIC INTEGRITY POLICY</div>
+              <div class="course_description">
+                Students are encouraged to use any and all resources available to complete programming assignments. However, students must <span style="font-weight:600">clearly cite any contributing source</span>. Support libraries that provide assigned functionality may not be linked or copied into programming assignments, but their source code may be consulted provided it is subsequently cited. It is absolutely essential to note that failure to cite any contributing source will be considered cheating regardless of the reason for the omission. Likewise, <span style="font-weight:600">verbatim duplication of any source will always be considered plagiarism</span>.
+              </div>
+            </div>
+          </div>
+          <div class="small-12 medium-3 large-3 columns">
+            <div class="section desktop-only">
+              <img alt="Client-Server Architecture" src="images/client_server.png">
+            </div>
+            <div class="course_staff section">
+              <div class="heading">STAFF</div>
+              <div class="member" ng-repeat="member in courseInfo.staff">
+                <span class="name">{{member.name}}</span>
+                <div ng-if="member.hours!=''">
+                  OH:
+                  <span class="hours">{{member.hours}}, </span>
+                  <span class="room">{{member.room}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="grading section">
+              <div class="heading">GRADING</div>
+              <div class="section">
+                <div class="grading-breakdown">5%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP0: Basics</div>
+                <div class="grading-breakdown">15%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP1: Single Page Website</div>
+                <div class="grading-breakdown">15%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP2: Frontend App</div>
+                <div class="grading-breakdown">15%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MP3: Backend App</div>
+                <div class="grading-breakdown">20%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MIDTERM</div>
+                <div class="grading-breakdown">30%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FINAL PROJECT</div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row section">
+        <div class="small-12 columns">
+
+          <div class="heading">SYLLABUS</div>
+          <div class="row week" ng-repeat="week in courseInfo.syllabus" ng-class="{stripe: courseInfo.syllabus.indexOf(week)%2==0}">
+              <div class="small-2 columns week-heading">
+                WEEK {{week.week}}
+              </div>
+              <div class="small-5 columns" ng-repeat="class in week.classes">
+                <div class="date-heading">{{class.date}}</div>
+                <div><a ng-if="class.slides!=''" href={{"slides/"+class.slides}} class="topic">{{class.topic}}</a></div>
+                <div><a ng-if="class.slides==''" href="#" class="topic">{{class.topic}}</a></div>
+                <div class="description">{{class.description}}</div>
+
+                <div ng-repeat="reading in class.readings">
+                  <div class="reading">
+                    <a href={{reading.link}}>
+                      <span class="title">{{reading.title}}</span>
+                    </a>
+                  </div>
+                </div><!-- END OF READINGS -->
+
+                <div class="assignment">{{class.projectnote}}</div>
+
+              </div><!-- END OF CLASS -->
+
+          </div><!-- END OF WEEK -->
+
+        </div>
+      </div> <!-- END OF SYLLABUS -->
+
+    </div>
+  </body>
+</html>
