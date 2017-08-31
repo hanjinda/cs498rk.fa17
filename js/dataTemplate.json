@@ -75,7 +75,7 @@
         {
           "date": "Aug 28",
           "topic": "Introduction",
-          "slides": "",
+          "slides": "intro_01.pdf",
           "description": "",
           "readings": [
           ]
@@ -83,7 +83,7 @@
         {
           "date": "Aug 30",
           "topic": "HTML + DEV LAB: Environment Setup",
-          "slides": "",
+          "slides": "html_02.pdf",
           "description": "Document Object Model, Layout Engines",
           "readings": [
             {
