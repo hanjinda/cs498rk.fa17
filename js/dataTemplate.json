@@ -141,8 +141,8 @@
         {
           "date": "Sep 11",
           "topic": "JavaScript",
-          "slides": "",
-          "description": "ES5, ES6, TypeScript",
+          "slides": "javascript_04.pdf",
+          "description": "Language Fundamentals",
           "readings": [
             {
               "title": "",
@@ -178,9 +178,9 @@
       "classes": [
         {
           "date": "Sep 18",
-          "topic": "DataBinding + React",
+          "topic": "Responsive Design",
           "slides": "",
-          "description": "HTTP, AJAX, JSON, Components",
+          "description": "Media Queries, Flexbox",
           "readings": [
             {
               "title": "",
@@ -194,9 +194,9 @@
         },
         {
           "date": "Sep 20",
-          "topic": "GUEST LECTURE: Facebook",
+          "topic": "DataBinding + React",
           "slides": "",
-          "description": "React",
+          "description": "HTTP, AJAX, JSON, Components",
           "readings": [
             {
               "title": "",
@@ -206,8 +206,7 @@
               "title": "",
               "link": ""
             }
-          ],
-          "projectnote": "🌮 Taco Social"
+          ]
         }
       ]
     },
