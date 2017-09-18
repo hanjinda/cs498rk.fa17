@@ -179,7 +179,7 @@
         {
           "date": "Sep 18",
           "topic": "Advanced JS + Responsive Design",
-          "slides": "",
+          "slides": "mp1_mixed_bag.pdf",
           "description": "ES6, Media Queries, Flexbox",
           "readings": [
             {
