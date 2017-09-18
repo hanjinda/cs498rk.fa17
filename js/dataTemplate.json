@@ -158,8 +158,8 @@
         {
           "date": "Sep 13",
           "topic": "JavaScript",
-          "slides": "",
-          "description": "Events, DOM manipulation",
+          "slides": "javascript_04.pdf",
+          "description": "DOM manipulation, Events",
           "readings": [
             {
               "title": "",
@@ -178,9 +178,9 @@
       "classes": [
         {
           "date": "Sep 18",
-          "topic": "Responsive Design",
+          "topic": "Advanced JS + Responsive Design",
           "slides": "",
-          "description": "Media Queries, Flexbox",
+          "description": "ES6, Media Queries, Flexbox",
           "readings": [
             {
               "title": "",
