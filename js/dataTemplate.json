@@ -195,8 +195,8 @@
         {
           "date": "Sep 20",
           "topic": "DataBinding + React",
-          "slides": "",
-          "description": "HTTP, AJAX, JSON, Components",
+          "slides": "react.pptx",
+          "description": "Components",
           "readings": [
             {
               "title": "",
