@@ -194,7 +194,7 @@
         },
         {
           "date": "Sep 20",
-          "topic": "DataBinding + React",
+          "topic": "React",
           "slides": "react.pdf",
           "description": "Components",
           "readings": [
@@ -215,9 +215,9 @@
       "classes": [
         {
           "date": "Sep 25",
-          "topic": "APIs",
-          "slides": "",
-          "description": "REST",
+          "topic": "Data Binding",
+          "slides": "databinding_10.pdf",
+          "description": "HTTP, AJAX, JSON, REST",
           "readings": [
             {
               "title": "",
@@ -232,7 +232,7 @@
         },
         {
           "date": "Sep 27",
-          "topic": "DEV LAB: React",
+          "topic": "APIs + DEV LAB: React",
           "slides": "",
           "description": "",
           "readings": [
