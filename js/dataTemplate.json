@@ -270,8 +270,8 @@
         {
           "date": "Oct 4",
           "topic": "RESTful APIs",
-          "slides": "",
-          "description": "CORS, Caching",
+          "slides": "restfulapis_16.pdf",
+          "description": "Caching, CORS",
           "readings": [
             {
               "title": "",
