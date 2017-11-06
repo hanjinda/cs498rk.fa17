@@ -405,7 +405,7 @@
          {
           "date": "Oct 30",
           "topic": "UI/UX App Design",
-          "slides": "",
+          "slides": "uidesign_07.pdf",
           "description": "Ideation, Prototyping",
           "readings": [
             {
@@ -421,8 +421,8 @@
         },
         {
           "date": "Nov 1",
-          "topic": "Responsive Design",
-          "slides": "Mobile-First, Grids, Flexbox",
+          "topic": "NO CLASS",
+          "slides": "",
           "description": "",
           "readings": [
           ]
@@ -434,9 +434,9 @@
       "classes": [
         {
           "date": "Nov 6",
-          "topic": "Users",
-          "slides": "",
-          "description": "Cookies, Sessions, Authentication",
+          "topic": "Visual & Responsive Design",
+          "slides": "Mobile-First",
+          "description": "visualdesign_08.pdf",
           "readings": [
             {
             }
@@ -445,9 +445,9 @@
         },
         {
           "date": "Nov 8",
-          "topic": "Security & Attacks",
+          "topic": "Users",
           "slides": "",
-          "description": "",
+          "description": "Cookies, Sessions, Authentication",
           "readings": [
           ],
           "projectnote": "FP Groups and Proposals Due"
