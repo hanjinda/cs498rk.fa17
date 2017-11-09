@@ -446,8 +446,8 @@
         {
           "date": "Nov 8",
           "topic": "Users",
-          "slides": "",
-          "description": "Cookies, Sessions, Authentication",
+          "slides": "users_26.pdf",
+          "description": "Cookies, Sessions",
           "readings": [
           ],
           "projectnote": "FP Groups and Proposals Due"
@@ -459,9 +459,9 @@
       "classes": [
         {
           "date": "Nov 13",
-          "topic": "DEV LAB: Services",
+          "topic": "DEV LAB: Passport",
           "slides": "",
-          "description": "BaaS, Cloud",
+          "description": "Authentication",
           "readings": [
             {
               "title": "",
